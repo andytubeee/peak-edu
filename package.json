@@ -8,18 +8,27 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "dependencies": {
-    "bootstrap": "^4.5.0",
-    "typescript": "^3.9.6"
+    "@types/scrollmagic": "^2.0.1",
+    "bootstrap": "^5.0.0-alpha1",
+    "destagnate": "^1.2.1",
+    "normalize.css": "^8.0.1",
+    "scrollmagic": "^2.0.7"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.6.0",
-    "@typescript-eslint/parser": "^3.6.0",
-    "eslint": "^7.4.0",
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@types/node": "^14.0.14",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "browserify": "^16.5.1",
+    "eslint": "^7.3.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-prefer-arrow": "^1.2.1",
     "stylelint": "^13.6.1",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-standard": "^20.0.0",
+    "typescript": "^3.9.5"
   }
 }
