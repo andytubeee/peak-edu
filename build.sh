@@ -111,13 +111,14 @@ buildDev() {
 
     # Pack lib files w/ browserify
     printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
-    for script in "${browserify[@]}"; do
-        formattedDir=$(formatDir $script "" $index)
+    # for script in "${browserify[@]}"; do
+    #     formattedDir=$(formatDir $script "" $index)
 
-        printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
+    #     printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
 
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
-    done
+    #     npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
+    # done
+    npx browserify lib/index.js > ./js_new/home.js
 
     # Compile w/ Babel
     # printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
@@ -185,15 +186,14 @@ build() {
 
     # Pack lib files w/ browserify
     printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
-    for script in "${browserify[@]}"; do
-        formattedDir=$(formatDir $script "" $index)
+    # for script in "${browserify[@]}"; do
+    #     formattedDir=$(formatDir $script "" $index)
 
-        printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
+    #     printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
 
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js &
-    done
-
-    wait
+    #     npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
+    # done
+    npx browserify lib/index.js > ./js_new/home.js
 
     # Compile w/ Babel
     printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
