@@ -29,3 +29,27 @@
     opacity: 0;
   }
 }
+
+@keyframes sep-span-expand {
+  from {
+    width: 0%;
+    transform: translateX(180%);
+  }
+
+  to {
+    width: 90%;
+    transform: translateX(10%);
+  }
+}
+
+@keyframes sep-span-retract {
+  from {
+    width: 90%;
+    transform: translateX(10%);
+  }
+
+  to {
+    width: 0%;
+    transform: translateX(180%);
+  }
+}

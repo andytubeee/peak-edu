@@ -56,8 +56,37 @@ const infoDisplay = new InfoDisplay(
         } else {
             infoDisplay.unmount()
         }
+    },
+    onScroll = (): void => {
+        const about = document.getElementById("about"),
+            h1 = about?.querySelector("h1"),
+            span = about?.querySelector("span.sep-line"),
+            para = about?.querySelector("p"),
+            imgs = about?.getElementsByTagName("img")
+
+        if (about && h1 && span && para && imgs) {
+            if (window.scrollY + (window.innerHeight * 0.5) >= about.offsetTop) {
+                h1.classList.add("scrolled-at")
+                span.classList.add("scrolled-at")
+                para.classList.add("scrolled-at")
+
+                for (const img of imgs) {
+                    img.classList.add("scrolled-at")
+                }
+            } else {
+                h1.classList.remove("scrolled-at")
+                span.classList.remove("scrolled-at")
+                para.classList.remove("scrolled-at")
+
+                for (const img of imgs) {
+                    img.classList.remove("scrolled-at")
+                }
+            }
+        }
     }
 
 window.onresize = homeFunc
+window.onscroll = onScroll
 
 homeFunc()
+onScroll()

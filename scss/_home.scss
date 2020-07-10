@@ -79,6 +79,71 @@
       }
     }
 
+    #about {
+      .row {
+        position: relative;
+
+        .image-container {
+          position: relative;
+          height: 100vh;
+
+          img {
+            opacity: 0;
+            animation: fade-out 0.5s ease;
+
+            &:nth-child(1) {
+              width: 65vw;
+              left: -5rem;
+            }
+
+            &:nth-child(2) {
+              position: absolute;
+              width: 40vw;
+              top: 25%;
+              left: 5rem;
+            }
+
+            &.scrolled-at {
+              opacity: 1;
+              animation: fade-in-up 0.5s ease;
+            }
+          }
+        }
+
+        .content-container {
+          h1 {
+            font-size: 4vw;
+          }
+
+          span.sep-line {
+            background-color: $dark;
+            height: 0.25rem;
+            animation: sep-span-retract 1s ease;
+            width: 0%;
+            transform: translateX(180%);
+
+            &.scrolled-at {
+              animation: sep-span-expand 1s ease forwards 0.25s;
+            }
+          }
+
+          p {
+            font-size: 2vw;
+          }
+
+          h1,
+          p {
+            opacity: 0;
+            animation: fade-out 0.5s ease;
+
+            &.scrolled-at {
+              animation: fade-in-up 0.5s ease forwards 0.5s;
+            }
+          }
+        }
+      }
+    }
+
     .info {
       position: relative;
       display: block;
