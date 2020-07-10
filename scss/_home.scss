@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 @import "variables";
 
 #home {
@@ -202,6 +203,36 @@
         p {
           font-size: 1.5rem;
         }
+      }
+    }
+
+    .contact {
+      position: relative;
+
+      .header-container {
+        position: absolute;
+        top: 5rem;
+        left: 50%;
+
+        h1 {
+          position: relative;
+          left: -50%;
+          font-size: 5rem;
+          opacity: 0;
+          animation: fade-out 0.25s ease;
+
+          &.scrolled-at {
+            animation: fade-in-up 0.25s ease forwards;
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .row p {
+        font-size: 2rem;
       }
     }
   }
