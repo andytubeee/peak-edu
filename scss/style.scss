@@ -47,27 +47,37 @@ body {
   max-width: 100% !important;
 }
 
-.navbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-left: 1rem;
-  font-size: 2.25vw;
-  z-index: 1000;
+@media (min-width: 767px) {
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 1rem;
+    font-size: 2.25vw;
+    z-index: 1000;
 
-  .nav-link {
-    margin-left: 0.75vw;
-    margin-right: 0.75vw;
-  }
-
-  .nav-item.active {
-    .nav-link {
-      color: rgba(0, 0, 0, 0.7);
+    img {
+      max-height: 6rem;
     }
   }
+}
 
-  img {
-    max-height: 7.5rem;
+@media (min-width: 992px) {
+  .navbar {
+    .nav-link {
+      margin-left: 0.75vw;
+      margin-right: 0.75vw;
+    }
+  
+    .nav-item.active {
+      .nav-link {
+        color: rgba(0, 0, 0, 0.7);
+      }
+    }
+  
+    img {
+      max-height: 7.5rem;
+    }
   }
 }
 
