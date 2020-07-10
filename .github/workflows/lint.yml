@@ -1,0 +1,23 @@
+name: lint
+
+on:
+  push:
+    branches: [ master, front-end ]
+  pull_request:
+    branches: [ master, front-end ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: install deps
+      run: yarn install --frozen-lockfile
+
+    - name: stylelint lint
+      run: npx stylelint "*/**/*.{scss,css}"
+
+    - name: lint
+      run: npx eslint "*/**/*.{js,jsx,ts,tsx}"
