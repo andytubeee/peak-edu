@@ -1,3 +1,43 @@
+@keyframes arrow-hover-lg {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(0.75rem, 0);
+  }
+}
+
+@keyframes arrow-not-hover-lg {
+  from {
+    transform: translate(0.75rem, 0);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes arrow-hover {
+  from {
+    transform: translate(0, 0.25rem);
+  }
+
+  to {
+    transform: translate(0.75rem, 0.25rem);
+  }
+}
+
+@keyframes arrow-not-hover {
+  from {
+    transform: translate(0.75rem, 0.25rem);
+  }
+
+  to {
+    transform: translate(0, 0.25rem);
+  }
+}
+
 .btn-box {
   cursor: pointer;
   position: relative;
@@ -45,45 +85,6 @@
 }
 /* stylelint-enable no-descending-specificity */
 
-@keyframes arrow-hover-lg {
-  from {
-    transform: translate(0, 0);
-  }
-
-  to {
-    transform: translate(0.75rem, 0);
-  }
-}
-
-@keyframes arrow-not-hover-lg {
-  from {
-    transform: translate(0.75rem, 0);
-  }
-
-  to {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes arrow-hover {
-  from {
-    transform: translate(0, 0.25rem);
-  }
-
-  to {
-    transform: translate(0.75rem, 0.25rem);
-  }
-}
-
-@keyframes arrow-not-hover {
-  from {
-    transform: translate(0.75rem, 0.25rem);
-  }
-
-  to {
-    transform: translate(0, 0.25rem);
-  }
-}
 
 @each $color, $value in $theme-colors {
   @keyframes btn-box-#{$color}-hover {

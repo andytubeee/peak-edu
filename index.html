@@ -42,7 +42,7 @@
   <body id="home">
     <noscript>You need to enable JavaScript to use this site.</noscript>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-none">
+    <nav class="navbar navbar-expand-xl navbar-expand-lg navbar-expand-md navbar-light bg-none">
       <a class="navbar-brand" href="/">
         <img src="images/logo.svg" alt="logo"/>
       </a>
@@ -52,17 +52,31 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/">About us</a>
+            <a class="nav-link" href="#about">About us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Why Tutoring?</a>
+            <a class="nav-link" href="#fixed">Why Tutoring?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/">Contact us</a>
+            <a class="nav-link" href="#contact">Contact us</a>
           </li>
         </ul>
       </div>
     </nav>
+
+    <div class="d-md-block d-none">
+      <div class="landing-page">
+        <div class="content-container">
+          <h2>Welcome to</h2>
+          <h1>Peak Education</h1>
+          <a role="button" class="btn btn-outline-primary">About us</a>
+        </div>
+        <div class="image-container">
+          <img src="images/decor/decor1.svg"/>
+          <img src="images/goal.svg"/>
+        </div>
+      </div>
+    </div>
 
     <div class="d-lg-block d-xl-block d-none">
       <div class="landing-page">
@@ -70,10 +84,10 @@
           <h2>Welcome to</h2>
           <h1>Peak Education</h1>
           <div class="btn-container">
-            <btn class="btn-box-lg btn-box-primary">
+            <a role="button" class="btn-box-lg btn-box-primary" href="#about">
               Who we are<span class="material-icons">trending_flat</span>
-            </btn>
-            <a class="ml-4" href="/">Contact Us</a>
+            </a>
+            <a class="ml-4" href="#contact">Contact Us</a>
           </div>
         </div>
         <div class="image-container">
@@ -116,7 +130,7 @@
         </div>
       </div>
 
-      <div class="contact">
+      <div class="contact" id="contact">
         <div class="header-container"><h1>Contact Us</h1></div>
         <img src="images/contact-us.svg" alt="contact"/>
         <div class="row my-5">
@@ -183,8 +197,9 @@
         </div>
       </div>
     </div>
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-      <a href="https://luke-zhang-04.github.io"> Luke Zhang</a>
+    <div class="footer-copyright text-center py-3">
+      © 2020 Copyright: <a href="https://luke-zhang-04.github.io">Luke Zhang</a><br/>
+      <a href="https://github.com/Luke-zhang-04/peak-edu/blob/master/LICENSE">Terms and conditions</a> apply.
     </div>
   </footer>
 </html>
