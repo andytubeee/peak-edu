@@ -48,10 +48,10 @@ export const bindAbout = (suffix = ""): void => {
             }
         }
     },
-    bindContact = (): void => {
+    bindContact = (container = ".d-lg-block"): void => {
         const contact =
             document.querySelector(
-                ".d-lg-block .contact"
+                `${container} .contact`
             ) as HTMLElement | null,
             windowScroll = window.scrollY + (window.innerHeight * 0.5)
 

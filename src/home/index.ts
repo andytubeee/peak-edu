@@ -81,6 +81,7 @@ const infoDisplay = new InfoDisplay(
             bindContact()
         } else if (window.innerWidth > utils.globals.sizes.sm) {
             bindAbout("-md")
+            bindContact(".d-md-block")
         }
     }
 
