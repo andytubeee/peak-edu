@@ -100,17 +100,17 @@ buildDev() {
     # npx babel lib --out-dir lib
 
     # Remove new JS_new directory
-    printf "${BIRed}Removing ${Yellow}./js_new_new/${Purple} ${Red}(if exists)${Purple}\n"
+    printf "${BIRed}Removing ${Yellow}./js_new/${Purple} ${Red}(if exists)${Purple}\n"
     if [ -d "js_new" ]; then
         rm -r js_new
     fi
 
     # Make new js_new directory
-    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new_new/${Purple} ${Cyan}directory${Purple}\n"
+    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new/${Purple} ${Cyan}directory${Purple}\n"
     mkdir js_new
 
     # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new_new/${Purple}\n"
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
     for script in "${browserify[@]}"; do
         formattedDir=$(formatDir $script "" $index)
 
@@ -174,24 +174,26 @@ build() {
     npx babel lib --out-dir lib
 
     # Remove new JS_new directory
-    printf "${BIRed}Removing ${Yellow}./js_new_new/${Purple} ${Red}(if exists)${Purple}\n"
+    printf "${BIRed}Removing ${Yellow}./js_new/${Purple} ${Red}(if exists)${Purple}\n"
     if [ -d "js_new" ]; then
         rm -r js_new
     fi
 
     # Make new js_new directory
-    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new_new/${Purple} ${Cyan}directory${Purple}\n"
+    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new/${Purple} ${Cyan}directory${Purple}\n"
     mkdir js_new
 
     # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new_new/${Purple}\n"
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
     for script in "${browserify[@]}"; do
         formattedDir=$(formatDir $script "" $index)
 
         printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
 
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
+        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js &
     done
+
+    wait
 
     # Compile w/ Babel
     printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
