@@ -21,46 +21,67 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 import * as ScrollMagic from "scrollmagic"
+import * as utils from "../_utils"
 import InfoDisplay, {bindInfoStickEvent} from "./info"
 import {bindAbout, bindContact} from "./scrollStatus"
 
-
-let scrollmagicScene: ScrollMagic.Scene
+let scrollmagicScene: ScrollMagic.Scene | void
 
 const infoDisplay = new InfoDisplay(
         document.getElementById("info-display") as HTMLElement,
         {parent: document.getElementById("info-display") as HTMLElement}
     ),
+    infoDisplayMd = new InfoDisplay(
+        document.getElementById("info-display-md") as HTMLElement,
+        {parent: document.getElementById("info-display-md") as HTMLElement}
+    ),
+    home = document.getElementById("home"),
+
+    bindScrollMagic = (
+        selectedInfoDisplay: InfoDisplay,
+        suffix = ""
+    ): void | ScrollMagic.Scene => {
+        const images = document.getElementById(`info${suffix}`)?.getElementsByClassName("info-img")
+
+        if (
+            home &&
+            home.querySelector(`.info #fixed${suffix}`) &&
+            images &&
+            !scrollmagicScene
+        ) {
+            return bindInfoStickEvent(
+                home.querySelector(`.info #fixed${suffix}`) as
+                    HTMLDivElement,
+                images as HTMLCollectionOf<HTMLImageElement>,
+                selectedInfoDisplay,
+            )
+        }
+
+        return undefined
+    },
 
     homeFunc = (): void => {
-        if (window.innerWidth > 992) {
-            const home = document.getElementById("home")
-            
+        if (window.innerWidth > utils.globals.sizes.md) {
+            infoDisplayMd.unmount()
             infoDisplay.unmount()
             infoDisplay.mount()
 
-            if (home) {
-                if (
-                    home.querySelector(".info #fixed") &&
-                    home.getElementsByClassName("info-img") &&
-                    !scrollmagicScene
-                ) {
-                    scrollmagicScene = bindInfoStickEvent(
-                        home.querySelector(".info #fixed") as
-                            HTMLDivElement,
-                        home.getElementsByClassName("info-img") as
-                            HTMLCollectionOf<HTMLImageElement>,
-                        infoDisplay,
-                    )
-                }
-            }
+            scrollmagicScene = bindScrollMagic(infoDisplay)
         } else {
             infoDisplay.unmount()
+            infoDisplayMd.unmount()
+            infoDisplayMd.mount()
+
+            scrollmagicScene = bindScrollMagic(infoDisplayMd, "-md")
         }
     },
     onScroll = (): void => {
-        bindAbout()
-        bindContact()
+        if (window.innerWidth > utils.globals.sizes.md) {
+            bindAbout()
+            bindContact()
+        } else if (window.innerWidth > utils.globals.sizes.sm) {
+            bindAbout("-md")
+        }
     }
 
 window.onresize = homeFunc

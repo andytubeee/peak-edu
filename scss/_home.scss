@@ -8,7 +8,7 @@
 @media (min-width: 767px) {
   #home {
     .landing-page {
-      height: 30rem;
+      height: 50vh;
       position: relative;
 
       .image-container {
@@ -78,73 +78,15 @@
         }
       }
     }
-  }
-}
 
-@media (min-width: 992px) {
-  #home {
-    .landing-page {
-      height: 100vh;
-
-      .image-container {
-        img {
-          &:nth-child(2) {
-            top: 2rem;
-          }
-        }
-      }
-
-      .content-container {
-        .btn-box-lg {
-          position: absolute;
-        }
-
-        h1,
-        h2,
-        .btn-container {
-          position: absolute;
-          left: 3rem;
-          opacity: 0;
-          animation: fade-in-up 0.25s ease forwards;
-        }
-
-        h1 {
-          top: 22.5rem;
-          font-size: 6vw;
-          animation-delay: 0.25s;
-        }
-
-        h2 {
-          top: 15rem;
-          font-size: 4vw;
-        }
-
-        .btn-container {
-          position: relative;
-          top: 32.5rem;
-          animation-delay: 0.5s;
-        }
-
-        a:not([role=button]) {
-          position: absolute;
-          left: 12rem;
-          transform: translateY(0.625rem);
-          font-size: 1.5rem;
-        }
-
-        a[role=button] {
-          text-decoration: none;
-        }
-      }
-    }
-
-    #about {
+    #about,
+    #about-md {
       .row {
         position: relative;
 
         .image-container {
           position: relative;
-          height: 100vh;
+          height: 50vh;
 
           img {
             opacity: 0;
@@ -221,10 +163,10 @@
       .content-container {
         height: 80vh;
         position: absolute;
-        left: 7.5rem;
+        left: 0;
         top: 10vh;
         background-color: #fafafa;
-        max-width: 30rem;
+        width: 50vw;
         box-shadow: -3px 3px 20px #37373720;
 
         h1 {
@@ -247,12 +189,13 @@
 
         img.info-img {
           position: relative;
-          width: calc(90vw - 37.5rem);
+          width: calc(60vw - 10rem);
           margin-bottom: 50vh;
         }
       }
 
-      #info-display {
+      #info-display,
+      #info-display-md {
         div {
           animation: fade-in 0.25s ease;
         }
@@ -263,6 +206,107 @@
 
         p {
           font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  #home {
+    .landing-page {
+      height: 100vh;
+
+      .image-container {
+        img {
+          &:nth-child(2) {
+            top: 2rem;
+          }
+        }
+      }
+
+      .content-container {
+        .btn-box-lg {
+          position: absolute;
+        }
+
+        h1,
+        h2,
+        .btn-container {
+          position: absolute;
+          left: 3rem;
+          opacity: 0;
+          animation: fade-in-up 0.25s ease forwards;
+        }
+
+        h1 {
+          top: 22.5rem;
+          font-size: 6vw;
+          animation-delay: 0.25s;
+        }
+
+        h2 {
+          top: 15rem;
+          font-size: 4vw;
+        }
+
+        .btn-container {
+          position: relative;
+          top: 32.5rem;
+          animation-delay: 0.5s;
+        }
+
+        a:not([role=button]) {
+          position: absolute;
+          left: 12rem;
+          transform: translateY(0.625rem);
+          font-size: 1.5rem;
+        }
+
+        a[role=button] {
+          text-decoration: none;
+        }
+      }
+    }
+
+    #about,
+    #about-md {
+      .row {
+        .image-container {
+          height: 100vh;
+
+          img {
+            &:nth-child(2) {
+              position: absolute;
+              width: 40vw;
+              top: 25%;
+              left: 5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .info {
+      .content-container {
+        height: 80vh;
+        position: absolute;
+        left: 7.5rem;
+        top: 10vh;
+        background-color: #fafafa;
+        max-width: 30rem;
+        box-shadow: -3px 3px 20px #37373720;
+      }
+
+      .image-container {
+        position: absolute;
+        right: 5vw;
+        top: 50vh;
+
+        img.info-img {
+          position: relative;
+          width: calc(90vw - 37.5rem);
+          margin-bottom: 50vh;
         }
       }
     }

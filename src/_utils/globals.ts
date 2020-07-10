@@ -20,11 +20,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-import * as ScrollMagic from "scrollmagic"
-import {default as _globals} from "./globals"
+interface Sizes {
+    sm: number,
+    md: number,
+}
 
-const controller = new ScrollMagic.Controller()
+interface Globals {
+    sizes: Sizes,
+}
 
-export default controller
+export const sizes: Sizes = {
+    sm: 767,
+    md: 992,
+},
+    globals: Globals = {
+        sizes,
+    }
 
-export const globals = _globals
+Object.freeze(globals)
+
+export default globals

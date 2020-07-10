@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
-# Luke Zhang's developer portfolio
+# Peak Education
+#
 # Copyright (C) 2020 Luke Zhang
 # 
 # Luke-zhang-04.github.io
 # 
 # This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published
+# it under the terms of the GNU General Public License as published
 # by the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 # 
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
+# GNU General Public License for more details.
 # 
-# You should have received a copy of the GNU Affero General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )" # Get location of this script
@@ -196,6 +197,34 @@ build() {
     # Compile w/ Babel
     printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
     npx babel js_new --out-dir js_new --minified --compact true --no-comments
+
+    cd js_new
+    for file in *; do
+        echo "/**
+ * Peak Education Website
+ * 
+ * @copyright (C) 2020 Luke Zhang
+ * 
+ * @author Luke Zhang
+ * https://luke-zhang-04.github.io/
+ * 
+ * @license GPL-3.0
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+$(cat $file)" > "$file"
+    done
+    cd ..
 
     printf "${BGreen}Cleaning up...${Purple}\n"
 

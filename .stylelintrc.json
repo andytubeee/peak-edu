@@ -3,7 +3,8 @@
     "ignoreFiles": [
         "public/**",
         "images/**/*.svg",
-        "*.css"
+        "*.css",
+        "css/"
     ],
     "rules": {
         "indentation": 2,

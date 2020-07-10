@@ -21,8 +21,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export const bindAbout = (): void => {
-        const about = document.getElementById("about"),
+export const bindAbout = (suffix = ""): void => {
+        const about = document.getElementById(`about${suffix}`),
             h1 = about?.querySelector("h1"),
             span = about?.querySelector("span.sep-line"),
             para = about?.querySelector("p"),
@@ -54,8 +54,6 @@ export const bindAbout = (): void => {
                 ".d-lg-block .contact"
             ) as HTMLElement | null,
             windowScroll = window.scrollY + (window.innerHeight * 0.5)
-
-        console.log(windowScroll, contact?.offsetTop)
 
         if (contact) {
             /* eslint-disable no-unused-expressions */
