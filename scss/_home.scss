@@ -84,6 +84,8 @@
 @media (min-width: 992px) {
   #home {
     .landing-page {
+      height: 100vh;
+
       .image-container {
         img {
           &:nth-child(2) {
@@ -97,10 +99,41 @@
           position: absolute;
         }
 
+        h1,
+        h2,
+        .btn-container {
+          position: absolute;
+          left: 3rem;
+          opacity: 0;
+          animation: fade-in-up 0.25s ease forwards;
+        }
+
         h1 {
           top: 22.5rem;
           font-size: 6vw;
           animation-delay: 0.25s;
+        }
+
+        h2 {
+          top: 15rem;
+          font-size: 4vw;
+        }
+
+        .btn-container {
+          position: relative;
+          top: 32.5rem;
+          animation-delay: 0.5s;
+        }
+
+        a:not([role=button]) {
+          position: absolute;
+          left: 12rem;
+          transform: translateY(0.625rem);
+          font-size: 1.5rem;
+        }
+
+        a[role=button] {
+          text-decoration: none;
         }
       }
     }
@@ -130,8 +163,11 @@
             }
 
             &.scrolled-at {
-              opacity: 1;
-              animation: fade-in-up 0.5s ease;
+              animation: fade-in-up 0.5s ease forwards;
+              
+              &:nth-child(2) {
+                animation-delay: 0.25s;
+              }
             }
           }
         }
