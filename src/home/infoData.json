@@ -1,0 +1,22 @@
+
+{
+    "modern": {
+        "title": "Experience with Modern Schooling",
+        "text": "Peak Education is made up of a group of high school students who have walked in your child’s shoes."
+    },
+
+    "future": {
+        "title": "Shape Your Child's Future",
+        "text": "The best way to predict the future is to create it, and with Peak Education, we can help you create that future."
+    },
+
+    "oneOnOne": {
+        "title": "One on One Attention",
+        "text": "1:1 teacher-student ratio allows for more attention, engagement, and overall learning from your child, rather than a 1:30 ratio."
+    },
+
+    "motivate": {
+        "title": "Motivate Your Child to Learn",
+        "text": "Children are motivated when they do well in class. By setting them up for success, your child will be more eager to learn."
+    }
+}

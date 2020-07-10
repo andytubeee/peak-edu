@@ -1,0 +1,126 @@
+.btn-box {
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  padding: 0.25rem 1.25rem;
+
+  span.material-icons {
+    position: absolute;
+    width: 3rem;
+    font-size: 3rem;
+    font-weight: 100;
+    top: -40%;
+    animation: arrow-not-hover 0.25s ease;
+    transform: translate(0, 0.25rem);
+  }
+
+  &:hover span.material-icons {
+    animation: arrow-hover 0.25s ease;
+    transform: translate(0.75rem, 0.25rem);
+  }
+}
+
+/* stylelint-disable no-descending-specificity */
+.btn-box-lg {
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  padding: 0.25rem 1.25rem;
+  font-size: 1.5rem;
+
+  span.material-icons {
+    position: absolute;
+    width: 3rem;
+    font-size: 3rem;
+    font-weight: 100;
+    top: -5%;
+    animation: arrow-not-hover-lg 0.25s ease;
+    transform: translate(0, 0);
+  }
+
+  &:hover span.material-icons {
+    animation: arrow-hover-lg 0.25s ease;
+    transform: translate(0.75rem, 0);
+  }
+}
+/* stylelint-enable no-descending-specificity */
+
+@keyframes arrow-hover-lg {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(0.75rem, 0);
+  }
+}
+
+@keyframes arrow-not-hover-lg {
+  from {
+    transform: translate(0.75rem, 0);
+  }
+
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes arrow-hover {
+  from {
+    transform: translate(0, 0.25rem);
+  }
+
+  to {
+    transform: translate(0.75rem, 0.25rem);
+  }
+}
+
+@keyframes arrow-not-hover {
+  from {
+    transform: translate(0.75rem, 0.25rem);
+  }
+
+  to {
+    transform: translate(0, 0.25rem);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  @keyframes btn-box-#{$color}-hover {
+    from {
+      background-color: $none;
+    }
+
+    to {
+      background-color: $value;
+      color: $light;
+    }
+  }
+
+  @keyframes btn-box-#{$color}-not-hover {
+    from {
+      background-color: $value;
+      color: $light;
+    }
+
+    to {
+      background-color: $none;
+    }
+  }
+
+  .btn-box-#{$color} {
+    background-color: $none;
+    border: 0.25rem solid $value;
+    animation: btn-box-#{$color}-not-hover 0.25s ease;
+
+    span.material-icons {
+      color: $value;
+    }
+
+    &:hover {
+      animation: btn-box-#{$color}-hover 0.25s ease;
+      background-color: $value;
+      color: $light;
+    }
+  }
+}
