@@ -1,11 +1,61 @@
 /* stylelint-disable no-descending-specificity */
 @import "variables";
 
-#home {
-  .landing-page {
-    .image-container {
-      img {
-        
+@media (max-width: 766px) {
+  #home {
+    .landing-page {
+      height: 100vh;
+      position: relative;
+
+      .image-container {
+        position: relative;
+
+        img {
+          opacity: 0;
+          animation: fade-in-up 0.25s ease forwards;
+
+          &:nth-child(1) {
+            position: absolute;
+            width: 100vw;
+            height: auto;
+            animation-delay: 0.375s;
+          }
+
+          &:nth-child(2) {
+            position: absolute;
+            width: 90vw;
+            height: auto;
+            right: -7.5vw;
+            top: 7.5rem;
+            animation-delay: 0.5s;
+          }
+        }
+      }
+
+      .content-container {
+        position: relative;
+        left: 1rem;
+
+        h1,
+        h2,
+        .btn-container {
+          animation: fade-in-up 0.25s ease forwards;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        h1 {
+          font-size: 3rem;
+          opacity: 0;
+          animation-delay: 0.125s;
+        }
+
+        .btn-container {
+          opacity: 0;
+          animation-delay: 0.25s;
+        }
       }
     }
   }
