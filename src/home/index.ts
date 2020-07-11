@@ -67,12 +67,29 @@ const infoDisplay = new InfoDisplay(
             infoDisplay.mount()
 
             scrollmagicScene = bindScrollMagic(infoDisplay)
-        } else {
+        } else if (window.innerWidth > utils.globals.sizes.sm) {
             infoDisplay.unmount()
             infoDisplayMd.unmount()
             infoDisplayMd.mount()
 
             scrollmagicScene = bindScrollMagic(infoDisplayMd, "-md")
+        } else {
+            const navItems = document.querySelector(".navbar-nav.d-sm-block"),
+                navToggler = document.querySelector(".navbar-toggler"),
+                navCloser = document.getElementById("navbar-close")
+            
+            if (navItems && navToggler && navCloser) {
+                for (const navUtil of [navToggler, navCloser]) {
+                    navUtil.addEventListener("click", () => {
+                        if (navItems.classList.contains("show")) {
+                            navItems.classList.remove("show", "start")
+                        } else {
+                            navItems.classList.add("show")
+                            navItems.classList.remove("start")
+                        }
+                    })
+                }
+            }
         }
     },
     onScroll = (): void => {

@@ -53,3 +53,23 @@
     transform: translateX(180%);
   }
 }
+
+@keyframes nav-sm-show {
+  from {
+    left: -100vw;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@keyframes nav-sm-collapse {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: -100vw;
+  }
+}

@@ -85,7 +85,6 @@
 }
 /* stylelint-enable no-descending-specificity */
 
-
 @each $color, $value in $theme-colors {
   @keyframes btn-box-#{$color}-hover {
     from {

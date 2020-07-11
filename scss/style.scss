@@ -1,6 +1,6 @@
 
 /*!
-* Universal styling for luke-zhang-04.github.io
+* Universal styling for Peak Education
 * Includes Normalize.css, Bootstrap SASS, and other styles that apply to all pages
 */
 @import "../node_modules/normalize.css/normalize";
@@ -46,6 +46,43 @@ html {
 html,
 body {
   max-width: 100% !important;
+}
+
+.navbar {
+  img {
+    max-height: 6rem;
+  }
+}
+
+.navbar-nav.d-sm-block {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: -100vw;
+  background-color: $dark;
+  
+  &:not(.start) {
+    animation: nav-sm-collapse 0.5s ease forwards;
+  }
+
+  &.show {
+    animation: nav-sm-show 0.5s ease forwards;
+  }
+
+  ul.list-unstyled.text-center {
+    font-size: 3rem;
+  }
+
+  #navbar-close {
+    vertical-align: middle;
+
+    .material-icons {
+      display: block;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
 }
 
 @media (min-width: 767px) {
