@@ -89,6 +89,20 @@ const infoDisplay = new InfoDisplay(
                         }
                     })
                 }
+
+                for (
+                    const navItem of
+                    navItems.getElementsByClassName("nav-link")
+                ) {
+                    navItem.addEventListener("click", () => {
+                        if (navItems.classList.contains("show")) {
+                            navItems.classList.remove("show", "start")
+                        } else {
+                            navItems.classList.add("show")
+                            navItems.classList.remove("start")
+                        }
+                    })
+                }
             }
         }
     },
@@ -99,6 +113,19 @@ const infoDisplay = new InfoDisplay(
         } else if (window.innerWidth > utils.globals.sizes.sm) {
             bindAbout("-md")
             bindContact(".d-md-block")
+        } else {
+            const aboutSm = document.getElementById("about-sm"),
+                windowScroll = window.scrollY + (window.innerHeight * 0.85)
+
+            if (aboutSm) {
+                for (const child of aboutSm.children) {
+                    if (windowScroll >= (child as HTMLElement).offsetTop) {
+                        child.classList.add("scrolled-at")
+                    } else {
+                        child.classList.remove("scrolled-at")
+                    }
+                }
+            }
         }
     }
 

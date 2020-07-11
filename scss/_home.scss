@@ -58,6 +58,30 @@
         }
       }
     }
+
+    #about-sm {
+      h1,
+      p,
+      img {
+        opacity: 0;
+      
+        &:not(.scrolled-at) {
+          animation: fade-out 0.25s ease;
+        }
+      }
+
+      h1.scrolled-at {
+        animation: fade-in-up 0.25s ease forwards;
+      }
+
+      p.scrolled-at {
+        animation: fade-in-up 0.25s ease forwards 0.125s;
+      }
+
+      img.scrolled-at {
+        animation: fade-in-up 0.25s ease forwards 0.25s;
+      }
+    }
   }
 }
 
