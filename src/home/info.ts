@@ -25,7 +25,7 @@ import * as utils from "../_utils"
 import DeStagnate, {createElement} from "destagnate"
 import {default as infoData} from "./infoData.json"
 
-interface InfoData {
+export interface InfoData {
     [index: string]: InfoDisplayState,
     modern: InfoDisplayState,
     future: InfoDisplayState,

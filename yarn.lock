@@ -2009,10 +2009,10 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
-destagnate@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/destagnate/-/destagnate-1.2.2.tgz#26863ed1345bde92435b0677adfeeb1338f14e28"
-  integrity sha512-3yvozRs21WFPQNFjWF9d2hM1m9Ca/OMJ8Vsfd/GOEBGVFZ2+I0NTWCofNpFjAxFcrBUoaQUk5vTwBqxUwHTYrQ==
+destagnate@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/destagnate/-/destagnate-1.2.3.tgz#9a38da9f37dbc255d0afae4a5bafea694825527c"
+  integrity sha512-u9UPtAeZmaQkMmEhCGr0et2lPRUzt4UfNdRoN9pJdWLiqRupL/gjbkQalSjgbwpZnQjH2brIGoyQQzzWmJ1tPA==
   dependencies:
     "@babel/core" "^7.10.4"
     "@babel/plugin-proposal-class-properties" "^7.10.4"
