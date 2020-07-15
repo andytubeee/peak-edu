@@ -1,9 +1,0 @@
-{
-    "presets": ["@babel/preset-env"],
-    "ignore": ["./tests/test.js"],
-    "plugins": [
-        "transform-minify-booleans",
-        "minify-constant-folding",
-        "minify-dead-code-elimination"
-    ]
-}
