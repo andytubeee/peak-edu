@@ -261,5 +261,5 @@ elif [[ $1 == "-w" ]]||[[ $1 == "--watch" ]];then
 elif [[ $1 == "-d" ]]||[[ $1 == "--dev" ]]; then
     buildDev
 else
-
+    build
 fi
