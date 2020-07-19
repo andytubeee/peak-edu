@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "bash build.sh --watch",
-    "build": "bash build.sh"
+    "build": "bash build.sh",
+    "sass": "bash build.sh --only sass"
   },
   "keywords": [],
   "author": "",
