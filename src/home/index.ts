@@ -72,7 +72,7 @@ const infoDisplay = new InfoDisplay(
 
             for (
                 const navItem of
-                navItems.getElementsByClassName("nav-link")
+                Array.from(navItems.getElementsByClassName("nav-link"))
             ) {
                 navItem.addEventListener("click", () => {
                     if (navItems.classList.contains("show")) {
@@ -131,7 +131,7 @@ const infoDisplay = new InfoDisplay(
                 windowScroll = window.scrollY + (window.innerHeight * 0.85)
 
             if (aboutSm) {
-                for (const child of aboutSm.children) {
+                for (const child of Array.from(aboutSm.children)) {
                     if (windowScroll >= (child as HTMLElement).offsetTop) {
                         child.classList.add("scrolled-at")
                     } else {

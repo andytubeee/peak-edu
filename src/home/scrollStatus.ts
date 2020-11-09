@@ -23,7 +23,7 @@ export const bindAbout = (suffix = ""): void => {
                 span.classList.add("scrolled-at")
                 para.classList.add("scrolled-at")
 
-                for (const img of imgs) {
+                for (const img of Array.from(imgs)) {
                     img.classList.add("scrolled-at")
                 }
             } else {
@@ -31,7 +31,7 @@ export const bindAbout = (suffix = ""): void => {
                 span.classList.remove("scrolled-at")
                 para.classList.remove("scrolled-at")
 
-                for (const img of imgs) {
+                for (const img of Array.from(imgs)) {
                     img.classList.remove("scrolled-at")
                 }
             }

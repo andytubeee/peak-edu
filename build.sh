@@ -68,18 +68,17 @@ compileSass() {
 buildDev() {
     # Get all folders in ./ts, add to their index files to browserify list
     for dir in ./src/*/ ; do
-        formattedDir=$(formatDir $dir "index" $src)
+        formattedDir=$(formatDir "$dir" "index" "$src")
 
         if [[ ${formattedDir:0:1} != "_" ]]; then
             browserify+=( "$formattedDir" )
         fi
     done
 
-    if [[ ! $1 ]]; then
+    # Compile SASS
+    if [ "$1" ]; then
         compileSass &
     fi
-    # Compile SASS
-
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
@@ -87,50 +86,17 @@ buildDev() {
 
     wait
 
-    # Compile w/ Babel
-    # printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
-    # npx babel lib --out-dir lib
-
-    # Remove new JS_new directory
-    printf "${BIRed}Removing ${Yellow}./js_new/${Purple} ${Red}(if exists)${Purple}\n"
-    if [ -d "js_new" ]; then
-        rm -r js_new
-    fi
-
-    # Make new js_new directory
-    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new/${Purple} ${Cyan}directory${Purple}\n"
-    mkdir js_new
-
     # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js/${Purple}\n"
     for script in "${browserify[@]}"; do
         formattedDir=$(formatDir $script "" $index)
 
         printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
 
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
+        npx browserify lib/"${script}".js > ./js/"${formattedDir}."js
     done
 
-    # Compile w/ Babel
-    # printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
-    # npx babel js_new --out-dir js_new --minified --compact true --no-comments
-
     printf "${BGreen}Cleaning up...${Purple}\n"
-
-    # Get rid of lib
-    printf "\t${BIRed}Removing ${BIGreen}lib${ICyan}\n"
-    rm -r lib
-
-    # Get rid of ./js/
-    if [ -d "js" ]; then
-        rm -r js
-    fi
-
-    # Create new ./js/ dir
-    # mkdir js
-
-    # Move ./js_new to ./js
-    mv ./js_new/ ./js/
 }
 
 #######################################
@@ -145,7 +111,7 @@ buildDev() {
 build() {
     # Get all folders in ./ts, add to their index files to browserify list
     for dir in ./src/*/ ; do
-        formattedDir=$(formatDir $dir "index" $src)
+        formattedDir=$(formatDir "$dir" "index" "$src")
 
         if [[ ${formattedDir:0:1} != "_" ]]; then
             browserify+=( "$formattedDir" )
@@ -161,50 +127,21 @@ build() {
 
     wait
 
-    # Compile w/ Babel
-    printf "${BIYellow}Compiling${BIGreen} ./lib/${Purple} in place with ${BIYellow}Babel${BIGreen}\n\t"
-    npx babel lib --out-dir lib
-
-    # Remove new JS_new directory
-    printf "${BIRed}Removing ${Yellow}./js_new/${Purple} ${Red}(if exists)${Purple}\n"
-    if [ -d "js_new" ]; then
-        rm -r js_new
-    fi
-
-    # Make new js_new directory
-    printf "${BIGreen}Creating${Purple} new ${Yellow}./js_new/${Purple} ${Cyan}directory${Purple}\n"
-    mkdir js_new
-
     # Pack lib files w/ browserify
-    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js_new/${Purple}\n"
+    printf "${BIBlue}Packing ${BIGreen}./lib/${Purple} files with ${BBlue}browserify${Purple} and sending to ${Yellow}./js/${Purple}\n"
     for script in "${browserify[@]}"; do
         formattedDir=$(formatDir $script "" $index)
 
         printf "\t${BIBlue}Packing${Purple} script with root ${Cyan}$script${Purple}, to file ${Cyan}$formattedDir.js${Purple}\n"
 
-        npx browserify lib/"${script}".js > ./js_new/"${formattedDir}."js
+        npx browserify lib/"${script}".js > ./js/"${formattedDir}."js
     done
 
     # Compile w/ Babel
-    printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js_new/${BIGreen}\n\t"
-    npx babel js_new --out-dir js_new --minified --compact true --no-comments
+    printf "${BICyan}Running ${BIYellow}Babel${Purple} on ${Yellow}./js/${BIGreen}\n\t"
+    npx babel js --out-dir js --minified --compact true --no-comments
 
     printf "${BGreen}Cleaning up...${Purple}\n"
-
-    # Get rid of lib
-    printf "\t${BIRed}Removing ${BIGreen}lib${ICyan}\n"
-    rm -r lib
-
-    # Get rid of ./js/
-    if [ -d "js" ]; then
-        rm -r js
-    fi
-
-    # Create new ./js/ dir
-    # mkdir js
-
-    # Move ./js_new to ./js
-    mv ./js_new/ ./js/
 }
 
 #######################################
