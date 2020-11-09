@@ -1,11 +1,11 @@
 /**
  * Peak Education Website
- * 
+ *
  * @copyright (C) 2020 Luke Zhang
- * 
+ *
  * @author Luke Zhang
  * https://luke-zhang-04.github.io/
- * 
+ *
  * @license Modified-BSD-3-Clause
  * @see {@link https://github.com/Luke-zhang-04/peak-edu/blob/master/LICENSE}
  */
@@ -85,7 +85,7 @@ export const bindInfoStickEvent = (
         }),
         increment = 1 / images.length,
         infoKeys: InfoKeys = ["modern", "future", "oneOnOne", "motivate"]
-    
+
     if (scene) {
         scene.setPin(container)
             .addTo(utils.default)

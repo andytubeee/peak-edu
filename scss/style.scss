@@ -42,7 +42,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-  
+
 html,
 body {
   max-width: 100% !important;
@@ -58,7 +58,7 @@ body {
       max-height: 6rem;
     }
   }
-  
+
   .navbar-nav.d-sm-block {
     position: fixed;
     height: 100vh;
@@ -66,22 +66,22 @@ body {
     top: 0;
     left: -100vw;
     background-color: $dark;
-    
+
     &:not(.start) {
       animation: nav-sm-collapse 0.5s ease forwards;
     }
-  
+
     &.show {
       animation: nav-sm-show 0.5s ease forwards;
     }
-  
+
     ul.list-unstyled.text-center {
       font-size: 3rem;
     }
-  
+
     #navbar-close {
       vertical-align: middle;
-  
+
       .material-icons {
         display: block;
         margin-top: auto;
@@ -119,13 +119,13 @@ body {
       margin-left: 0.75vw;
       margin-right: 0.75vw;
     }
-  
+
     .nav-item.active {
       .nav-link {
         color: rgba(0, 0, 0, 0.7);
       }
     }
-  
+
     img {
       max-height: 7.5rem;
     }

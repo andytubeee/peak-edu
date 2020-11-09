@@ -64,7 +64,7 @@
       p,
       img {
         opacity: 0;
-      
+
         &:not(.scrolled-at) {
           animation: fade-out 0.25s ease;
         }
@@ -265,7 +265,7 @@
 
             &.scrolled-at {
               animation: fade-in-up 0.5s ease forwards;
-              
+
               &:nth-child(2) {
                 animation-delay: 0.25s;
               }

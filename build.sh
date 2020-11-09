@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Peak Education Website
-# 
+#
 # Copyright (C) 2020 Luke Zhang
-# 
+#
 # Author: Luke Zhang
 # https://luke-zhang-04.github.io/
-# 
+#
 # License: Modified-BSD-3-Clause
 # See https://github.com/Luke-zhang-04/peak-edu/blob/master/LICENSE
 
@@ -69,7 +69,7 @@ buildDev() {
     # Get all folders in ./ts, add to their index files to browserify list
     for dir in ./src/*/ ; do
         formattedDir=$(formatDir $dir "index" $src)
-        
+
         if [[ ${formattedDir:0:1} != "_" ]]; then
             browserify+=( "$formattedDir" )
         fi
@@ -79,7 +79,7 @@ buildDev() {
         compileSass &
     fi
     # Compile SASS
-    
+
 
     # Compile w/ TypeScript
     printf "${BIYellow}Compiling${Purple} with ${BIBlue}./src/${Purple} to ${BIGreen}./lib/${Purple} with ${BIBlue}TypeScript\n"
@@ -146,7 +146,7 @@ build() {
     # Get all folders in ./ts, add to their index files to browserify list
     for dir in ./src/*/ ; do
         formattedDir=$(formatDir $dir "index" $src)
-        
+
         if [[ ${formattedDir:0:1} != "_" ]]; then
             browserify+=( "$formattedDir" )
         fi
@@ -220,7 +220,7 @@ watch() {
     while [[ true ]]; do
         fileChange2=$(find $1/ -type f -exec md5 {} \;)
 
-        if [[ "$fileChange1" != "$fileChange2" ]] ; then       
+        if [[ "$fileChange1" != "$fileChange2" ]] ; then
             if [[ "$1" == "scss" ]]; then
                 compileSass
             else

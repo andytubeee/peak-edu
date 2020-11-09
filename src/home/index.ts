@@ -1,11 +1,11 @@
 /**
  * Peak Education Website
- * 
+ *
  * @copyright (C) 2020 Luke Zhang
- * 
+ *
  * @author Luke Zhang
  * https://luke-zhang-04.github.io/
- * 
+ *
  * @license Modified-BSD-3-Clause
  * @see {@link https://github.com/Luke-zhang-04/peak-edu/blob/master/LICENSE}
  */
@@ -57,7 +57,7 @@ const infoDisplay = new InfoDisplay(
         const navItems = document.querySelector(".navbar-nav.d-sm-block"),
             navToggler = document.querySelector(".navbar-toggler"),
             navCloser = document.getElementById("navbar-close")
-        
+
         if (navItems && navToggler && navCloser) {
             for (const navUtil of [navToggler, navCloser]) {
                 navUtil.addEventListener("click", () => {
@@ -108,7 +108,7 @@ const infoDisplay = new InfoDisplay(
 
             const buttons = document
                 .querySelectorAll("#info-sm .btn-circle.btn-circle-primary")
-            
+
             buttons[0].addEventListener("click", () => {
                 infoDisplaySm.incrementKey(-1)
             })
