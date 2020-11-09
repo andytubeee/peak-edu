@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "GPL-3.0",
+  "license": "https://github.com/Luke-zhang-04/peak-edu/blob/master/LICENSE",
   "dependencies": {
     "@types/scrollmagic": "^2.0.1",
     "bootstrap": "^5.0.0-alpha1",
